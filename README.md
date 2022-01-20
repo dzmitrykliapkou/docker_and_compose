@@ -11,10 +11,10 @@ None.
 Role Variables
 --------------
 
-| Variable                | Description                                | Default value    |
-| :---------------------- | :----------------------------------------- | :--------------- |
-| docker_compose_path     | Path to place docker-compose binary        | `/usr/local/bin` |
-| docker_compose_version  | Specific docker-compose version to install | latest           |
+| Variable                | Description                                | Default value                   |
+| :---------------------- | :----------------------------------------- | :------------------------------ |
+| docker_compose_path     | Path to place docker-compose binary        | `/usr/local/bin/docker-compose` |
+| docker_compose_version  | Specific docker-compose version to install | latest                          |
 
 Dependencies
 ------------
