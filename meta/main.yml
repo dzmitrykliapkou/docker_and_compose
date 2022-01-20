@@ -1,0 +1,21 @@
+galaxy_info:
+  role_name: docker_and_compose
+  namespace: dzmitrykliapkou
+  author: Dzmitry Kliapkou
+  description: Ansible role that installs docker and docker-compose
+
+  license: GPLv3
+
+  min_ansible_version: 2.9
+
+  platforms:
+    - name: Ubuntu
+    - name: Debian
+    - name: CentOS
+    - name: Amazon Linux
+
+  galaxy_tags:
+    - docker
+    - docker-compose
+
+dependencies: []

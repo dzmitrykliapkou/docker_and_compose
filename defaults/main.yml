@@ -1,0 +1,4 @@
+---
+# defaults file for docker_and_compose
+docker_compose_path: "/usr/local/bin/docker-compose"
+docker_compose_version: "latest"

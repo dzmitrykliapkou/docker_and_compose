@@ -1,0 +1,4 @@
+---
+# tasks file for docker_and_compose
+- include: install_docker.yml
+- include: install_docker_compose.yml

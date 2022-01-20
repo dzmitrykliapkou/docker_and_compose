@@ -1,0 +1,22 @@
+---
+# Download latest docker-compose version
+- name: Download docker-compose
+  become: yes
+  get_url:
+    url: https://github.com/docker/compose/releases/latest/download/docker-compose-{{ ansible_system }}-{{ ansible_machine }}
+    dest: "{{ docker_compose_path }}"
+    mode: "u+x,g+x"
+  when: docker_compose_version == "latest"
+  tags:
+    - docker-compose
+
+# Download specified docker-compose version
+- name: Download docker-compose
+  become: yes
+  get_url:
+    url: https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ ansible_system }}-{{ ansible_machine }}
+    dest: "{{ docker_compose_path }}"
+    mode: "u+x,g+x"
+  when: docker_compose_version != "latest"
+  tags:
+    - docker-compose
