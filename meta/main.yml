@@ -10,8 +10,17 @@ galaxy_info:
 
   platforms:
     - name: Ubuntu
+      versions:
+        - xenial
+        - bionic
+        - focal
     - name: Debian
+      versions: 
+        - stretch
     - name: Fedora
+      versions: 
+        - "34"
+        - "35"
     - name: Amazon Linux 2
 
   galaxy_tags:
