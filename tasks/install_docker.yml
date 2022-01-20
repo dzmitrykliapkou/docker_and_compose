@@ -1,43 +1,43 @@
 ---
 - name: Add Docker repository [Red Hat]
-  become: yes
+  become: true
   yum_repository:
     name: docker
     description: Docker YUM repository
     baseurl: https://download.docker.com/linux/centos/docker-ce.repo
-    enabled: yes
-    gpgcheck: yes
+    enabled: true
+    gpgcheck: true
     gpgkey: https://download.docker.com/linux/centos/gpg
-  when: 
+  when:
     - ansible_os_family == "RedHat"
     - ansible_distribution != "Amazon"
   tags:
     - docker
 
 - name: Install Docker and it's dependencies [Red Hat]
-  become: yes
+  become: true
   yum:
-    name: ["docker-ce","docker-ce-cli","containerd.io"]
+    name: ["docker-ce", "docker-ce-cli", "containerd.io"]
     state: latest
-    update_cache: yes
-  when: 
+    update_cache: true
+  when:
     - ansible_os_family == "RedHat"
     - ansible_distribution != "Amazon"
   tags:
     - docker
 
 - name: Install prerequisites [Debian]
-  become: yes
+  become: true
   apt:
-    name: ["apt-transport-https","ca-certificates","curl","gnupg","lsb-release"]
+    name: ["apt-transport-https", "ca-certificates", "curl", "gnupg", "lsb-release"]
     state: latest
-    update_cache: yes
+    update_cache: true
   when: ansible_os_family == "Debian"
   tags:
     - docker
 
 - name: Import Docker GPG signing key [Debian]
-  become: yes
+  become: true
   apt_key:
     url: "https://download.docker.com/linux/debian/gpg"
     state: present
@@ -46,31 +46,31 @@
     - docker
 
 - name: Add Docker repository [Debian]
-  become: yes
+  become: true
   apt_repository:
     repo: deb https://download.docker.com/linux/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} stable
     state: present
     filename: docker
-    update_cache: yes
+    update_cache: true
   when: ansible_os_family == "Debian"
   tags:
     - docker
 
 - name: Install Docker and its dependencies [Debian]
-  become: yes
+  become: true
   apt:
-    name: ["docker-ce","docker-ce-cli","containerd.io"]
+    name: ["docker-ce", "docker-ce-cli", "containerd.io"]
     state: latest
-    update_cache: yes
+    update_cache: true
   when: ansible_os_family == "Debian"
   tags:
     - docker
 
 - name: Install docker [Amazon]
-  become: yes
+  become: true
   command: amazon-linux-extras install -y docker
   register: result
-  failed_when: result.rc != 0 
+  failed_when: result.rc != 0
   changed_when: false
   when: ansible_distribution == "Amazon"
   tags:
