@@ -11,8 +11,8 @@ galaxy_info:
   platforms:
     - name: Ubuntu
     - name: Debian
-    - name: CentOS
-    - name: Amazon Linux
+    - name: Fedora
+    - name: Amazon Linux 2
 
   galaxy_tags:
     - docker
